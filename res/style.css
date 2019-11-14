@@ -1,0 +1,12 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+.image{
+  background: url(animals.jpg);
+  background-position-x: -37px;
+  width: 186px;
+  position: absolute;
+  height: 180px;
+  background-position-Y: 262%;
+}
