@@ -2,11 +2,52 @@
   margin:0px;
   padding:0px;
 }
+body{
+  overflow: scroll;
+  background: linear-gradient(to left, rgb(188,237,27) 50%, rgb(18,135,100) 50%);
+}
+#content{
+  width: 800px;
+  margin:auto;
+  vertical-align: middle;
+}
+.tituloJogo{
+  text-align: center;
+  padding:10px 0px;
+  background:rgb(5,165,172);
+}
+#jogo{
+  width:800px;
+  height:600px;
+  background:#eee  /*temporario*/;
+}
 .image{
-  background: url(animals.jpg);
-  background-position-x: -37px;
-  width: 186px;
+  background: url(animals.png);
+  width: 70px;
   position: absolute;
-  height: 180px;
-  background-position-Y: 262%;
+  height: 60px;
+}
+.gato{
+  background-position-x: -13px;
+  background-position-Y: 0px;
+}
+.onca{
+  background-position-x: -91px;
+    background-position-Y: 0px;
+}
+.esqueci{
+  background-position-x: -168px;
+    background-position-Y: 0px;
+}
+.macaco{
+  background-position-x: -13px;
+  background-position-Y: -69px;
+}
+.jacare{
+  background-position-x: -86px;
+  background-position-Y: -68px;
+}
+.panda{
+  background-position-x: -167px;
+    background-position-Y: -68px;
 }
