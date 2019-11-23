@@ -7,7 +7,7 @@ body{
   background: linear-gradient(to left, rgb(188,237,27) 50%, rgb(18,135,100) 50%);
 }
 #content{
-  width: 800px;
+  width: 775px;
   margin:auto;
   vertical-align: middle;
 }
@@ -17,7 +17,7 @@ body{
   background:rgb(5,165,172);
 }
 #jogo{
-  width:800px;
+  width:775px;
   height:600px;
   background:#eee  /*temporario*/;
 }
@@ -35,7 +35,7 @@ body{
   background-position-x: -91px;
     background-position-Y: 0px;
 }
-.esqueci{
+.koala{
   background-position-x: -168px;
     background-position-Y: 0px;
 }
@@ -43,11 +43,15 @@ body{
   background-position-x: -13px;
   background-position-Y: -69px;
 }
-.jacare{
+.urso{
   background-position-x: -86px;
   background-position-Y: -68px;
 }
 .panda{
   background-position-x: -167px;
     background-position-Y: -68px;
+}
+.vazio{
+  background-position-x: -11px;
+  background-position-Y: -144px;
 }
