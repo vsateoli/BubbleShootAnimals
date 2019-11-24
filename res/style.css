@@ -20,6 +20,7 @@ body{
   width:775px;
   height:600px;
   background:#eee  /*temporario*/;
+  position: relative;
 }
 .image{
   background: url(animals.png);
@@ -54,4 +55,22 @@ body{
 .vazio{
   background-position-x: -11px;
   background-position-Y: -144px;
+}
+#areaLancamento{
+  border-top: 1px solid #000;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.lancamento{
+  margin:auto;
+  width: 70px;
+  position: relative;
+  height: 60px;
+}
+canvas{
+  position: absolute;
+  z-index: 11111;
+  width: inherit;
+  height: inherit;
 }
