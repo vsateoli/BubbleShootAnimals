@@ -96,6 +96,9 @@ function sortBubbles(){
   }
 }
 function colocarAnimalParaLancamento(){
+  /*LIMPO O ATUAL*/
+  $("#areaLancamento").children()[0].classList.replace($("#areaLancamento").children()[0].classList[2],"vazio")
+
   if (verificarSeAindaExisteAEspecieParaSerLibertada() == false) return;
   var randomico = Math.floor(Math.random()*(animais.length-1));
 
@@ -221,15 +224,17 @@ function escreverLinha(x,y){
     x2: 150, y2: 0
   });
 }
-
+function teste(animal){
+  for (var i = 1; i <posicoes.length; i++){
+    $("#jogo .p"+i)[0].classList.replace(animal,vazio);
+  }
+  $("#jogo .p49")[0].classList.replace($("#jogo .p49")[0].classList[1],animal);
+}
 function verificarSeAindaExisteAEspecieParaSerLibertada(){
   for (var i = 0; i< animais.length; i++){
     if($("#jogo ."+animais[i])[0] == undefined){
-      animais = animais.filter(function(value, index, arr){
-
-        return value == animais.splice(i,1);
-    
-    });
+      animais.splice(i,1)
+      console.log(animais);
     }
   }
   if (animais.length == 0){
