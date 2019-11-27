@@ -1,7 +1,7 @@
 var animais = ["gato","onca","koala","macaco","urso","panda", "vazio"];
 var posicoes = ["vazio"];
 const vazio = "vazio";
-
+var somClick = new Audio('res/click.mp3');
 $( document ).ready(function() {
   explicarJogo();
   sortBubbles();
@@ -18,11 +18,11 @@ $( document ).ready(function() {
   });
 });
 function explicarJogo(){
-  $("div#fundo").css("background-color","rgba(255,245,195,.8)");
+  $("div#fundo").css("background-color","rgba(255,245,195,.7)");
   $('canvas').drawText({
-    fillStyle: '#05A5AC',
+    fillStyle: '#000',
     fontStyle: 'bold',
-    fontSize: '18pt',
+    fontSize: '20pt',
     fontFamily: 'Trebuchet MS, sans-serif',
     text: 'COMO JOGAR:\n Os locais vazio estarão disponíveis para que você insira um animal. \nCaso os mesmos forem pares com suas arestas, os animais serão libertados ',
     x: 400, y: 100,
@@ -98,7 +98,6 @@ function sortBubbles(){
 function colocarAnimalParaLancamento(){
   /*LIMPO O ATUAL*/
   $("#areaLancamento").children()[0].classList.replace($("#areaLancamento").children()[0].classList[2],"vazio")
-
   if (verificarSeAindaExisteAEspecieParaSerLibertada() == false) return;
   var randomico = Math.floor(Math.random()*(animais.length-1));
 
@@ -201,10 +200,10 @@ function recuperaIndice(x,y){
 
 function alocaAnimal(animal, x,y){
   var indice = recuperaIndice(x,y);
-  // TO DO: PASSAR A VERIFICAR O ANGULO 
   if ($("#jogo .p"+indice)[0] == undefined) return;
   var animalPosicao = $("#jogo .p"+indice)[0].classList[1];
   if (animalPosicao == vazio){
+    tocaraudio(somClick);
     $("#jogo .p"+indice)[0].classList.replace("vazio",animal);
     var interval = setInterval(() => {
       verificarColisao(indice);
@@ -214,18 +213,8 @@ function alocaAnimal(animal, x,y){
     
   }
 }
-function escreverLinha(x,y){
-  $('canvas').clearCanvas();
-  $('canvas').drawLine({
-    strokeStyle: '#000',
-    rounded: true,
-    strokeWidth: 2,
-    x1: x, y1: 110,
-    x2: 150, y2: 0
-  });
-}
 function teste(animal){
-  for (var i = 1; i <posicoes.length; i++){
+  for (var i = 1; i <=posicoes.length; i++){
     $("#jogo .p"+i)[0].classList.replace(animal,vazio);
   }
   $("#jogo .p49")[0].classList.replace($("#jogo .p49")[0].classList[1],animal);
@@ -233,11 +222,25 @@ function teste(animal){
 function verificarSeAindaExisteAEspecieParaSerLibertada(){
   for (var i = 0; i< animais.length; i++){
     if($("#jogo ."+animais[i])[0] == undefined){
-      animais.splice(i,1)
       console.log(animais);
+      animais.splice(i,1)
     }
   }
   if (animais.length == 0){
     return false;
   }
+}
+function tocaraudio(som){
+  som.addEventListener('ended', function (){
+    this.currentTime = 0;
+		this.play();
+	}, false);
+
+  som.play().catch(function() {});	
+
+  var interval = setInterval(() => {
+    som.pause();
+    
+    clearInterval(interval);
+  }, 2000);
 }
