@@ -18,7 +18,7 @@ body{
 }
 #jogo{
   width:775px;
-  height:600px;
+  height:620px;
   background:#eee  /*temporario*/;
   position: relative;
 }
@@ -68,9 +68,18 @@ body{
   position: relative;
   height: 60px;
 }
-canvas{
+#fundo{
   position: absolute;
   z-index: 11111;
   width: inherit;
   height: inherit;
+}
+#jogar{
+  width: 201px;
+    height: 88px;
+    position: absolute;
+    top: 390px;
+    left: 283px;
+    z-index: 1;
+    border:2px solid #F1DB0F;
 }
